@@ -4,7 +4,7 @@ def multL(n):
         c *= i
     return c
 
-def trialDiv(n):
+def factorize(n):
     p = []
     f = 2
     while f**2 <= n:
