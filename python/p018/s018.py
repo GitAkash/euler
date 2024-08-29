@@ -20,10 +20,11 @@ converted_row = []
 for row in rows:
     numbs = row.split(' ')
     for numb in numbs:
-        numb = int(numb)
-        converted_row.append(numb) 
+        converted_row.append(int(numb)) 
     intpyramid.append(converted_row)
     converted_row = []
-
-for i in intpyramid:
-    
+n=0
+for j in range(len(intpyramid)):
+    print(intpyramid[j][n])
+    #Choose next row between the i-1, i, i+1
+    #Forgot how to find an index need to look it up again whoops 
