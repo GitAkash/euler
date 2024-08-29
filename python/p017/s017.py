@@ -16,6 +16,7 @@ Fourteen - 8
 Fifteen - 7
 Sixteen - 7
 Seventeen - 9
+Eighteen - 8
 Nineteen - 8
 Twenty - 6
 Thirty - 6
@@ -29,7 +30,7 @@ Hundred - 7
 Thousand - 8
 """
 
-firstnineteen = 3+3+5+4+4+3+5+5+4+3+6+6+8+8+7+7+9+8
+firstnineteen = 3+3+5+4+4+3+5+5+4+3+6+6+8+8+7+7+9+8+8
 one_to_nine = 3+3+5+4+4+3+5+5+4
 
 twenties = 6*10 + one_to_nine
