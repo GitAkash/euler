@@ -23,8 +23,11 @@ for row in rows:
         converted_row.append(int(numb)) 
     intpyramid.append(converted_row)
     converted_row = []
-n=0
+
+i = 0
 for j in range(len(intpyramid)):
-    print(intpyramid[j][n])
+    i += 1
+    for k in range(len(intpyramid[j])):
+        print(intpyramid[j][i-1])
     #Choose next row between the i-1, i, i+1
     #Forgot how to find an index need to look it up again whoops 
