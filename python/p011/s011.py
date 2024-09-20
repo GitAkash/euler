@@ -6,7 +6,6 @@ def multiplylist(n):
         c *= i
     return c
 
-
 def parse(grid):
     i = 0
     new_grid = []
@@ -21,6 +20,8 @@ def parse(grid):
 def greatestproduct(n):
     transposed_grid, grid = parse(n)
     max = (0,0)
+    diagonal_list1 = []
+    diagonal_list2 = []
     for i in range(20):
         for j in range(20):
             # Horizontal Check
@@ -30,7 +31,34 @@ def greatestproduct(n):
             vertic = transposed_grid[i][j:j+4]
             multV = multiplylist(vertic)
             
+            # Diagonal Check 1 (Left To Right)
+            if i < 17 and j < 17:
+                diag_value1 = grid[i][j]
+                diag_value2 = grid[i+1][j+1]
+                diag_value3 = grid[i+2][j+2]
+                diag_value4 = grid[i+3][j+3]
+                diagonal_list1.extend([diag_value1,diag_value2,diag_value3,diag_value4])
+                if len(diagonal_list1) == 4:
+                    multD1 = multiplylist(diagonal_list1)
+                    diagonal_list1 = []
+
+            # Diagonal Check 2 (Right To Left)
+            if i < 17:
+                diag2_value1 = grid[i][19-j]
+                diag2_value2 = grid[i+1][18-j]
+                diag2_value3 = grid[i+2][17-j]
+                diag2_value4 = grid[i+3][16-j]
+                diagonal_list2.extend([diag2_value1,diag2_value2,diag2_value3,diag2_value4])
+                if len(diagonal_list2) == 4:
+                    multD2 = multiplylist(diagonal_list2)
+                    print(diagonal_list2)
+                    diagonal_list2 = []
+
             # Compare
+            if multD1 > max[0]:
+                max = (multD1, diagonal_list2)
+            if multD2 > max[0]:
+                max = (multD2, diagonal_list2)
             if multH > max[0]:
                 max = (multH,horizon)
             if multV > max[0]:
