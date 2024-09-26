@@ -24,79 +24,30 @@ for row in rows:
     intpyramid.append(converted_row)
     converted_row = []
 
-
+max = 0
 # print(intpyramid)
+# WAAROM DE TERING BEGINT IE NIET BOVEN AAN????????????????????////
 for row in range(len(intpyramid)):
     for column in range(len(intpyramid[row])):
-        sequence0 = []
-        sequence1 = []
-        sequence2 = []
-        sequence3 = []
-        sequence4 = []
-        sequence5 = []
-        sequence6 = []
-        sequence7 = []
         current_number = intpyramid[row][column]
-        if row <= 11:
-        #Possiblities
-        
-            sequence0.append(intpyramid[row+1][column])
-            sequence0.append(intpyramid[row+2][column])
-            sequence0.append(intpyramid[row+3][column])
-
-            sequence1.append(intpyramid[row+1][column+1])
-            sequence1.append(intpyramid[row+2][column])
-            sequence1.append(intpyramid[row+3][column])
-
-            sequence2.append(intpyramid[row+1][column+1])
-            sequence2.append(intpyramid[row+2][column+1])
-            sequence2.append(intpyramid[row+3][column])
-        
-            sequence3.append(intpyramid[row+1][column+1])
-            sequence3.append(intpyramid[row+2][column])
-            sequence3.append(intpyramid[row+3][column+1])
-        
-            sequence4.append(intpyramid[row+1][column])
-            sequence4.append(intpyramid[row+2][column+1])
-            sequence4.append(intpyramid[row+3][column])
-        
-            sequence5.append(intpyramid[row+1][column])
-            sequence5.append(intpyramid[row+2][column+1])
-            sequence5.append(intpyramid[row+3][column+1])
-        
-            sequence6.append(intpyramid[row+1][column])
-            sequence6.append(intpyramid[row+2][column])
-            sequence6.append(intpyramid[row+3][column+1])
-        
-            sequence7.append(intpyramid[row+1][column+1])
-            sequence7.append(intpyramid[row+2][column+1])
-            sequence7.append(intpyramid[row+3][column+1])
-
-        if sum(sequence0) + current_number > max:
-            max = sum(sequence0) + current_number
-
-        if sum(sequence1) + current_number > max:
-            max = sum(sequence1) + current_number
-
-        if sum(sequence2) + current_number > max:
-            max = sum(sequence2) + current_number
-
-        if sum(sequence3) + current_number > max:
-            max = sum(sequence3) + current_number
-
-        if sum(sequence4) + current_number > max:
-            max = sum(sequence4) + current_number
-
-        if sum(sequence5) + current_number > max:
-            max = sum(sequence5) + current_number
-        
-        if sum(sequence6) + current_number > max:
-            max = sum(sequence6) + current_number
-        
-        if sum(sequence7) + current_number > max:
-            max = sum(sequence7) + current_number
-
-        print(sequence0, sequence1, sequence2, sequence3, sequence4, sequence5, sequence6, sequence7)
+        for l in [0,1]:
+            for k in [0, 1]:
+                for z in [0, 1]:
+                    num2 = 0
+                    num3 = 0
+                    num4 = 0
+                    if row <= 11:
+                        if column < len(intpyramid[row])-1:
+                            num2 = (intpyramid[row+1][column+l])
+                            num3 = (intpyramid[row+2][column+l+k])
+                            num4 = (intpyramid[row+3][column+l+k+z])
+                            sequence = [current_number, num2, num3, num4]
+                            print(sequence)
+                            if sum(sequence) > max:
+                                max = sum(sequence)
+                                print("MAX FOUND",sequence, max)
+print(max)
+        # print(sequence0, sequence1, sequence2, sequence3, sequence4, sequence5, sequence6, sequence7)
         #Values that are connected to the value above.
         # if row <= 13:
             # next_number0 = intpyramid[row+1][column]
