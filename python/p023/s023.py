@@ -3,9 +3,6 @@ def divisors(n):
     for i in range(1, n):
         if n % i == 0:
             divisors.append(i)
-            i += 1
-        else:
-            i += 1
     return divisors
 
 def abundant_number(n):
@@ -14,13 +11,41 @@ def abundant_number(n):
         return n        
 
 def func():
-    abundant_numbers = []
-    for n in range(1, 28124//2):
+    abundant_numbers = set()
+    sums = set()
+    total = 0
+    for n in range(1, 28123):
         if abundant_number(n):
-            abundant_numbers.append(n)
+            abundant_numbers.add(n)
+    print(abundant_numbers)    
+    for i in range(1, 28123):
+        for j in range(i, 28123):
+            summ = i + j
+            if summ not in abundant_numbers:
+                if summ <= 28123:
+                    if summ not in sums:
+                        total += summ
+                    sums.add(summ)
+    return total
+297575970
 
-    for i in abundant_numbers:
-        for j in abundant_numbers:
+# # print(abundant_number(28))
+# def func():
+#     abundant_numbers = set()
+#     sums = set()
+#     total = 0
+#     for n in range(1, 28124):
+#         if abundant_number(n):
+#             abundant_numbers.add(n)
+#     print(abundant_numbers)    
+
+    # for i in abundant_numbers:
+    #     for j in abundant_numbers:
+    #         summ = i + j
+    #         if summ not in sums:
+    #             total += summ
+    #         sums.add(summ)
+        
+    # return total
 
 print(func())
-        
